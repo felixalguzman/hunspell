@@ -1,9 +1,9 @@
 # hunspell
 
 ## Instalación
-Python 3.7
+Python 3.6
 ``` bash
-sudo apt install python3-dev && libhunspell-dev
+sudo apt install python-dev && libhunspell-dev
 ```
 ``` python 
 virtualenv env -p python3.6
