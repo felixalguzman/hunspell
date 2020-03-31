@@ -2,8 +2,6 @@ import os
 
 import hunspell
 
-# hobj = hunspell.HunSpell('/home/felixal/PycharmProjects/legabot/legabot/archivos/diccionarios/es_ANY.dic',
-#  '/home/felixal/PycharmProjects/legabot/legabot/archivos/diccionarios/es_ANY.aff')
 from settings import APP_STATIC
 
 es_dic = os.path.join(APP_STATIC, 'es_ANY.dic')
