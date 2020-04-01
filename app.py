@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask
+from flask import Flask, render_template
 
 from text import sugerir_palabras, revisar_ortografia
 
@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-	return 'Hello World!'
+	return render_template('index.html')
 
 
 @app.route('/dic/<palabra>')
