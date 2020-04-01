@@ -15,3 +15,5 @@ source env/bin/activate
 ```python 
 pip install -r requirements.txt
 ```
+
+Tutorial [Digital ocean](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uswgi-and-nginx-on-ubuntu-18-04)
