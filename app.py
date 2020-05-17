@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 from text import sugerir_palabras, revisar_ortografia
 
@@ -12,7 +12,7 @@ def hello_world():
 	return render_template('index.html')
 
 
-@app.route('/dic/<palabra>')
+@app.route('/diccionario/<palabra>')
 def validar(palabra):
 	ortografia = revisar_ortografia(palabra)
 
@@ -22,6 +22,25 @@ def validar(palabra):
 		data['sugerencias'] = sugerir_palabras(palabra)
 
 	json_data = json.dumps(data)
+	return json_data
+
+@app.route('/diccionario/')
+def validar_palabras():
+	"""
+	:param: oraciones: str
+	"""
+
+	oracion = request.args.get('oracion', default="", type=str)
+
+	sugerencias = {}
+	for palabra in oracion.split():
+
+		problema_ortografia = revisar_ortografia(palabra)
+		if not problema_ortografia:
+			sugerencias[palabra] = sugerir_palabras(palabra)
+
+	json_data= json.dumps(sugerencias)
+
 	return json_data
 
 
