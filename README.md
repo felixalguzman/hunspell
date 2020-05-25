@@ -1,5 +1,9 @@
 # hunspell
 
+### Doc oficial
+
+[Link](http://manpages.ubuntu.com/manpages/cosmic/man5/hunspell.5.html#short example)
+
 ## Instalación
 Python 3.6
 ``` bash
