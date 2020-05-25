@@ -2,7 +2,7 @@
 
 ### Doc oficial
 
-[Link](http://manpages.ubuntu.com/manpages/cosmic/man5/hunspell.5.html#short example)
+[Link](http://manpages.ubuntu.com/manpages/cosmic/man5/hunspell.5.html)
 
 ## Instalación
 Python 3.6
