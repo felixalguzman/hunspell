@@ -31,13 +31,14 @@ def validar_palabras():
 	"""
 
 	oracion = request.args.get('oracion', default="", type=str)
+	palabras = request.args.get('ignorar', default=[], type=list[str])
 
 	sugerencias = {}
 	for palabra in oracion.split():
-
-		problema_ortografia = revisar_ortografia(palabra)
-		if not problema_ortografia:
-			sugerencias[palabra] = sugerir_palabras(palabra)
+		if palabra not in palabras:
+			problema_ortografia = revisar_ortografia(palabra)
+			if not problema_ortografia:
+				sugerencias[palabra] = sugerir_palabras(palabra)
 
 	json_data= json.dumps(sugerencias)
 
