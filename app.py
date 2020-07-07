@@ -1,7 +1,6 @@
 import json
 
-from flask import Flask, render_template, request
-
+from flask import Flask, render_template, request,jsonify
 from text import sugerir_palabras, revisar_ortografia
 
 app = Flask(__name__)
@@ -31,18 +30,18 @@ def validar_palabras():
 	"""
 
 	oracion = request.args.get('oracion', default="", type=str)
-	palabras = request.args.get('ignorar', default=[], type=list[str])
+	ignorar_palabras = request.args.getlist('ignorar')
 
 	sugerencias = {}
 	for palabra in oracion.split():
-		if palabra not in palabras:
+		if palabra not in ignorar_palabras:
 			problema_ortografia = revisar_ortografia(palabra)
 			if not problema_ortografia:
 				sugerencias[palabra] = sugerir_palabras(palabra)
 
 	json_data= json.dumps(sugerencias)
 
-	return json_data
+	return jsonify(sugerencias)
 
 
 if __name__ == '__main__':
