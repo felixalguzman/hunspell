@@ -2,7 +2,7 @@ click==7.1.1
 Flask==2.3.2
 hunspell==0.5.5
 itsdangerous==1.1.0
-Jinja2==3.1.5
+Jinja2==3.1.6
 MarkupSafe==1.1.1
 uWSGI==2.0.22
 Werkzeug==3.0.6
